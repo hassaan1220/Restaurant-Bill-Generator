@@ -1,0 +1,125 @@
+<%- include("partials/header.ejs") %>
+
+    <!-- bill details form -->
+    <div class="main-container container-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+        <div class="bill-cntr col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="text-center">
+                <h3>BILL DETAILS</h3>
+            </div>
+            <form action="/submit" method="post">
+
+                <div class="row g-3 mb-3">
+                    <div class="col">
+                        <label class="p-1" for="date">Date</label>
+                        <input class="form-control" type="date" name="date" required>
+                    </div>
+                    <div class="col">
+                        <label class="p-1" for="time">Time</label>
+                        <input class="form-control" type="time" name="time" required>
+                    </div>
+                </div>
+
+                <div class="container mt-2">
+                    <div id="productContainer">
+                        <div class="row mb-2 product-row">
+                            <div class="col-md-4">
+                                <select class="form-select" name="product[]" required>
+                                    <option selected disabled value="">Select Food</option>
+                                    <option value="Burger">Burger</option>
+                                    <option value="Pizza">Pizza</option>
+                                    <option value="Fries">Fries</option>
+                                    <option value="Sandwich">Sandwich</option>
+                                    <option value="Taco">Taco</option>
+                                    <option value="Nuggets">Nuggets</option>
+                                    <option value="Wrap">Wrap</option>
+                                    <option value="Salad">Salad</option>
+                                    <option value="Drink">Drink</option>
+                                    <option value="Dessert">Dessert</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" name="price[]" required>
+                                    <option selected disabled value="">Select Price</option>
+                                    <option value="200">Rs. 200</option>
+                                    <option value="250">Rs. 250</option>
+                                    <option value="300">Rs. 300</option>
+                                    <option value="350">Rs. 350</option>
+                                    <option value="400">Rs. 400</option>
+                                    <option value="450">Rs. 450</option>
+                                    <option value="500">Rs. 500</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" name="quantity[]" required>
+                                    <option selected disabled value="">Qty</option>
+                                    <% for(let i=1; i<=10; i++) { %>
+                                        <option value="<%= i %>">
+                                            <%= i %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm product-btn" onclick="addProduct()">+ add
+                            product</button>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-md">Confirm Order</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+    </div>
+
+    <script>
+        function addProduct() {
+            const container = document.getElementById("productContainer");
+            const newRow = document.createElement("div");
+            newRow.className = "row mb-2 product-row";
+
+            newRow.innerHTML = `
+            <div class="col-md-4">
+                <select class="form-select" name="product[]" required>
+                    <option selected disabled value="">Select Food</option>
+                    <option value="Burger">Burger</option>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Fries">Fries</option>
+                    <option value="Sandwich">Sandwich</option>
+                    <option value="Taco">Taco</option>
+                    <option value="Nuggets">Nuggets</option>
+                    <option value="Wrap">Wrap</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Drink">Drink</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" name="price[]" required>
+                    <option selected disabled value="">Select Price</option>
+                    <option value="200">Rs. 200</option>
+                    <option value="250">Rs. 250</option>
+                    <option value="300">Rs. 300</option>
+                    <option value="350">Rs. 350</option>
+                    <option value="400">Rs. 400</option>
+                    <option value="450">Rs. 450</option>
+                    <option value="500">Rs. 500</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" name="quantity[]" required>
+                    <option selected disabled value="">Qty</option>
+                    ${Array.from({ length: 10 }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
+                </select>
+            </div>
+        `;
+            container.appendChild(newRow);
+        }
+    </script>
+
+    <%- include("partials/footer.ejs") %>

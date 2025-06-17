@@ -1,0 +1,51 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container-fluid orders-cntr">
+        <!-- Table -->
+        <table class="table custom-table mt-3">
+            <thead>
+                <tr>
+                    <th>BILL ID</th>
+                    <th>CUSTOMER ID</th>
+                    <th>DATE</th>
+                    <th>TIME</th>
+                    <th>PRODUCTS</th>
+                    <th>QTY</th>
+                    <th>TOTAL</th>
+                    <th>BILL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(element=> { %>
+                    <tr>
+                        <td>
+                            <%= element.BillId %>
+                        </td>
+                        <td>
+                            <%= element.CustomerID %>
+                        </td>
+                        <td>
+                            <%= element.Date %>
+                        </td>
+                        <td>
+                            <%= element.Time %>
+                        </td>
+                        <td>
+                            <%= element.Product %>
+                        </td>
+                        <td>
+                            <%= element.Quantity %>
+                        </td>
+                        <td>
+                            <%= element.Total %>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm" type="button" href="/bill">Generate Bill</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

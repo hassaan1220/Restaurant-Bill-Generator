@@ -1,0 +1,65 @@
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/32502363/pexels-photo-32502363/free-photo-of-rustic-cafe-setting-with-pizza-in-baghdad.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .bill-cntr {
+            padding: 30px;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 18px 17px 72px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        h3 {
+            color: white;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        label {
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 5px;
+            min-height: 45px;
+            border-radius: 0px 0px 0px 0px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: black;
+            box-shadow: 4px 5px 28px -2px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-control::placeholder,
+        .form-select::placeholder {
+            font-size: 15px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .btn {
+            color: black;
+            border: none;
+            background-color: white;
+            font-family: 'Courier New', Courier, monospace;
+            transition: all 0.3s ease-in;
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-5px);
+        }
+
+        .product-row input {
+            min-height: 45px;
+        }
