@@ -1,5 +1,5 @@
 # Restaurant-Bill-Generator
-This is a full-stack web application built using Node.js, Express, and EJS that generates printable restaurant-style bills dynamically.
+This is a full stack web application built using Node.js, Express, and EJS that generates printable restaurant-style bills dynamically.
 
 Project Overview:
 The Restaurant Bill Generator allows users to input customer and order details through a web form, view a structured summary, and generate a professional-looking bill layout. It’s designed to simulate a real-world billing system commonly used in restaurants or cafes.
